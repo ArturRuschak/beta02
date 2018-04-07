@@ -9,45 +9,47 @@ $continents =[
 foreach ($continents as $key => $value ) {
     echo "<h1>", $key, ':', "</h1>", "<br/>";
     foreach ($value as $item) {
-        $count = $item;
-        $animals = str_word_count($item);
-        if ($animals == 2) {
+        if((str_word_count($item)) == 2) {
             //echo $item, "<br/>";
             $array[] = $item;
-
-
-
-         $all_animals = explode(' ', $item);
-
+         $all_animals = explode(' ', $item );
          $first_animals[] = $all_animals[0];
-         $second_animals[] = $all_animals[1];
 
-$firsecond_animals[]= $first_animals+$second_animals;
+            $second_animals[] = $all_animals[1];
+
             shuffle($first_animals);
             shuffle($second_animals);
+            for($i=0;$i < $first_animals; $i++ ) {
 
-         foreach ($first_animals as $an) {
-             echo $an, "<br>";
-         }
-         foreach ($second_animals as $a){
+                $firsec_animals[] =$first_animals[$i]. ' '. $second_animals[$i];
+                $firsecc_animals = array_unique($firsec_animals);
 
-             echo $a, PHP_EOL;
-         }
+                foreach ($firsecc_animals as  $val ) {
+
+           if (str_word_count($val) == true) {
+
+             $vall[] = $val;
+
+
+
+
+           }
+
+
+                }
+
+
+
+        break;
+            }
         }
-
        }
-    }
+}
 echo "<pre>";
 
 
 var_dump($first_animals);
 var_dump($second_animals);
-//echo "<pre>";
-//var_dump($array);
-/*
-for($i=0;$i<2;$i++) {
+var_dump($firsecc_animals);
 
-    echo $array[$i];
-    break;
-}
-*/
+
